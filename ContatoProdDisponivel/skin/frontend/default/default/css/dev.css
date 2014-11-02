@@ -1,0 +1,31 @@
+/**
+ * CSS para estilizar o campo de CPF dentro da página do produto
+ * 
+ * @package 
+ */
+label {
+	font-size: 1.5em;
+	font-weight: bold;	
+}
+
+input {
+	font-size: 1.8em;
+	border: 0;
+	border-radius: 10px;
+	width: 100%;
+	border: solid 1px #999999;
+	padding: 5px 5px;
+	background-color: #FFFFFF;
+	box-shadow: 1px 1px 3px #666;
+	color: #333;
+}
+
+button {
+	margin-top: 10px;
+	border: 0;
+	border-radius: 10px;
+	background: #111111;
+	padding: 5px;
+	color: #FFFFFF;
+}
+

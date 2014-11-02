@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<DevXIII_ContatoProdDisponivel>
+			<version>0.1.0</version>
+		</DevXIII_ContatoProdDisponivel>
+	</modules>
+	<global>
+		<helpers>
+			<contatoProdDisponivel>
+				<class>DevXIII_ContatoProdDisponivel_Helper</class>
+			</contatoProdDisponivel>
+		</helpers>
+	</global>
+	<frontend>
+		<routers>
+			<contatoProdDisponivel>
+				<use>standard</use>
+				<args>
+					<module>DevXIII_ContatoProdDisponivel</module>
+					<frontName>contato</frontName>
+				</args>
+			</contatoProdDisponivel>
+		</routers>
+		<layout>
+			<updates>
+				<contatoProdDisponivel>
+					<file>contatoproduto.xml</file>
+				</contatoProdDisponivel>
+			</updates>
+		</layout>
+	</frontend>
+	
+	<adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<contatoProdDisponivel_options>
+											<title>DevXIII</title>
+										</contatoProdDisponivel_options>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml>
+</config>

@@ -1,0 +1,57 @@
+/**
+ * CSS for the Contact Products Module
+ * 
+ * @package default_default_catalog_product_view_contatoproduto.phtml
+ * @author Erick Bruno <erickfabiani123@gmail.com>
+ * 
+ */	
+.contato-sobreproduto-form {
+	background: #8F8F8F;
+	margin-top:10px;
+	padding: 10px;
+	width: 90%;
+}
+.contato-sobreproduto-form h1 {
+	text-align: center;
+	background: #1A1A1A;
+	color: #FFF;
+	padding: 5px;
+	margin-bottom: 10px;
+	
+}
+
+.contato-sobreproduto-form form p input, .contato-sobreproduto-form form p textarea {
+	background: #FFFFFF;
+	width: 98%;
+	border: 0;
+	resize: none;
+}
+
+.contato-sobreproduto-form form p label { 
+	font-weight: bold;
+	font-size: 14px; 
+}
+
+.contato-sobreproduto-form form p label { 
+	display:block; 
+}
+
+.contato-sobreproduto-form form p input { 
+	font-size: 16px;
+	padding: 5px;
+}
+
+.contato-sobreproduto-form form p textarea { 
+	height: 100px;
+}
+
+.contato-sobreproduto-form form p button
+{
+	width: 20%;
+	font-size: 18px;
+	padding: 10px;
+	background-color: #00AA00;
+	color: #FFFFFF;
+	border: 0;
+	border-radius: 10px;
+}

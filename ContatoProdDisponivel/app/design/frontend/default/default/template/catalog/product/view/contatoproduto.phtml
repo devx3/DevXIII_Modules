@@ -1,0 +1,66 @@
+<?php if( 1 == Mage::getStoreConfig('contatoProdDisponivel_options/general/enabled') ): ?>	
+	<?php $_product = $this->getProduct(); ?>
+	<div class="contato-sobreproduto-form">
+		<h1>Faça uma pergunta sobre o Produto</h1>
+		<form action="" method="post" onsubmit="return false;">
+			<p>
+				<label for="email"><?php echo $this->__('Email'); ?></label>
+				<input id="email" type="text" name="email" value="" />
+			</p>
+			<p>
+				<label for="assunto"><?php echo $this->__('Subject'); ?></label>
+				<input type="text" name="assunto" id="assunto" value="" />
+			</p>
+			<p>
+				<label><?php echo $this->__('Message'); ?> </label>
+				<textarea name="mensagem" id="mensagem" value=""></textarea>
+			</p>
+			<p><button type="submit" onclick="QuestionAboutProduct();"><?php echo $this->__('Submit'); ?></button></p>	
+		</form>
+		<div id="carregando"></div>
+	</div>
+	
+	<script type="text/javascript">
+	//<![CDATA[
+		function QuestionAboutProduct()
+		{
+			urlAjax = '<?php echo Mage::getBaseUrl().'contato/produto'; ?>';
+			new Ajax.Request(
+				urlAjax,
+				{ method: 'POST',
+					parameters: {
+						email: $('email').value,
+						assunto: $('assunto').value,
+						mensagem: $('mensagem').value,
+					},
+					evalScripts: true,
+					onLoading: function( transport ){
+						$('carregando').update('<img src="<?php echo $this->getSkinUrl('images/opc-ajax-loader.gif');?>" /> <span style="color: #888;"><?php echo $this->__('Loading...') ?></span>');
+					},
+					onComplete: function( transport ){},
+					onSuccess: function( result ){
+						if( 200 == result.status ){
+							try {
+								var res = result.responseText.evalJSON();
+								console.info(res);
+								$('carregando').update( 
+									'<p>'+
+										'<b>Email: </b>'+ res.email +
+									'</p>'+
+										'<b>Assunto: </b>'+ res.assunto +
+									'</p>'+
+										'<b>Mensagem: </b>'+ res.msg +
+									'</p>'
+								);
+							}	
+							catch(e){
+								alert(e.message);
+							}
+						}		
+					}
+				}
+			);
+		}
+	//]]>
+	</script>
+<?php endif; ?>

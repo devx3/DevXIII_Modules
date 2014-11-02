@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+		</resources>
+		<admin>
+			<children>
+				<system>
+					<children>
+						<config>
+							<children>
+								<contatoProdDisponivel translate="label" module="contatoProdDisponivel">
+									<title>Surprise Motherfucker</title>
+								</contatoProdDisponivel>
+							</children>
+						</config>
+					</children>
+				</system>
+			</children>
+		</admin>
+	</acl>
+</config>
