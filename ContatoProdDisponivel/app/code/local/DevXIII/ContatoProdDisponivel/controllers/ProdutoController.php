@@ -1,6 +1,6 @@
 <?php 
 
-include( 'includes/PHPMailer/PHPMailerAutoload.php' );
+include( 'includes/PHPMailer/class.phpmailer.php' );
 
 class DevXIII_ContatoProdDisponivel_ProdutoController 
 	extends Mage_Core_Controller_Front_Action {
