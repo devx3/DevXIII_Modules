@@ -90,12 +90,12 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		{
 			
 			$this->phpMailer = new PHPMailer;
-			$this->phpMailer->isSMTP();
+			$this->phpMailer->IsSMTP();
 			$this->phpMailer->SMTPAuth   = true;
-			$this->phpMailer->Host 	     = $this->_configsmtp->hostname;
+			$this->phpMailer->Host 	     = $this->_configsmtp->Hostname;
 			$this->phpMailer->Username   = $this->_configsmtp->FromEmail;
 			$this->phpMailer->Password   = $this->_configsmtp->FromPass;
-			$this->phpMailer->SMTPSecure = 'tls';
+			//$this->phpMailer->SMTPSecure = 'tls';
 			$this->phpMailer->Port 		 = $this->_configsmtp->SmtpPort;
 			
 			return $this->prepareEmails()->send();
@@ -110,10 +110,12 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		$this->phpMailer->From 	   = $this->_configsmtp->FromEmail;
 		$this->phpMailer->FromName = $this->_configsmtp->FromName;
 		
-		$this->phpMailer->addAddress( $this->_configsmtp->Recipients );
-		$this->phpMailer->addCC($this->_configsmtp->Cc );
-		$this->phpMailer->addBCC($this->_configsmtp->Bcc);
+		$this->phpMailer->AddAddress( $this->_configsmtp->Recipients );
+		$this->phpMailer->AddCC($this->_configsmtp->Cc );
+		$this->phpMailer->AddBCC($this->_configsmtp->Bcc);
 		
+		$this->phpMailer->IsHTML();
+		$this->phpMailer->CharSet = 'utf-8';
 		$this->phpMailer->Subject = $this->_configsmtp->TempSubject;
 		$this->phpMailer->Body 	  = $this->_configsmtp->TempMessage;
 		
@@ -124,7 +126,9 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	private function send()
 	{
 		
-		if( !$this->phpMailer->send() )
+		//return $this->phpMailer;
+		
+		if( !$this->phpMailer->Send() )
 		{
 			return 'Mailer Info: '.$this->phpMailer->ErrorInfo;	
 		}
