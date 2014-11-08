@@ -1,8 +1,12 @@
 <?php if( 1 == Mage::getStoreConfig('contatoProdDisponivel_options/general/enabled') ): ?>	
-	<?php $_product = $this->getProduct(); ?>
+	<?php $_product = $this->getProduct();?>
 	<div class="contato-sobreproduto-form">
 		<h1>Faça uma pergunta sobre o Produto</h1>
 		<form action="" method="post" onsubmit="return false;">
+			<p>
+				<label for="nome"><?php echo $this->__('Name'); ?></label>
+				<input id="nome" type="text" name="nome" value="" />
+			</p>
 			<p>
 				<label for="email"><?php echo $this->__('Email'); ?></label>
 				<input id="email" type="text" name="email" value="" />
@@ -29,8 +33,10 @@
 				urlAjax,
 				{ method: 'POST',
 					parameters: {
-						email: $('email').value,
-						assunto: $('assunto').value,
+						nome: 	  $('nome').value,
+						produto:  '<?php echo $_product->getName(); ?>',
+						email: 	  $('email').value,
+						assunto:  $('assunto').value,
 						mensagem: $('mensagem').value,
 					},
 					evalScripts: true,

@@ -43,26 +43,123 @@
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
 	        			</enabled>
-	        			<email_from translate="label">
-	        				<label>Email</label>
-	        				<comment>Email que enviará os emails</comment>
+	        			<from_name translate="label">
+	        				<label>From</label>
+	        				<comment>Nome do remetente dos emails</comment>
 	        				<frontend_type>text</frontend_type>
 	        				<sort_order>15</sort_order>
 	        				<show_in_default>1</show_in_default>
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
-	        			</email_from>
-	        			<pass_email translate="label">
+	        			</from_name>
+	        			<from_email translate="label">
+	        				<label>Email</label>
+	        				<comment>Email do Remetente</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>16</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</from_email>
+	        			<hostname translate="label">
+	        				<label>Hostname</label>
+	        				<comment>Ex: smtp.domain.com</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>17</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</hostname>
+	        			<from_pass translate="label">
 	        				<label>Senha</label>
 	        				<frontend_type>password</frontend_type>
 	        				<sort_order>20</sort_order>
 	        				<show_in_default>1</show_in_default>
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
-	        			</pass_email>
+	        			</from_pass>
+	        			<recipients translate="label">
+	        				<label>Destinatários</label>
+	        				<comment>Emails de destino (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>25</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</recipients>
+	        			<cc translate="label">
+	        				<label>Cópia para</label>
+	        				<comment>Emails para cópia (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>30</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</cc>
+	        			<bcc translate="label">
+	        				<label>Cópia oculta para</label>
+	        				<comment>Emails para cópia (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>30</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</bcc>
+	        			<smtp_port translate="label">
+	        				<label>Porta de Envio</label>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>35</sort_order>
+	        				<show_in_default>1</show_in_default>
+	        				<show_in_website>1</show_in_website>
+	        				<show_in_store>1</show_in_store>
+	        			</smtp_port>
 	        		</fields>
 	        	</general>
+	        	<email_config translate="label">
+	        		<label>Configurações do Email</label>
+	        		<comment>
+	        			<![CDATA[ 
+	        				<div>
+	        					<h1>Configurações do email</h1>
+	        					<p>Defina o assunto e o corpo da mensagem. Você pode utilizar algumas variáveis específicas para o email como:</p>
+	        					<ul>
+	        						<li>%n = Nome do Usuário</li>
+	        						<li>%e = Email do Usuário</li>
+	        						<li>%p = Nome do Produto</li>
+	        						<li>%a = Assunto</li>
+	        						<li>%m = Mensagem</li>
+	        					</ul>
+	        					<hr />
+	        					<br />
+	        				</div>
+	        			]]>
+	        		</comment>
+	        		<frontend_type>text</frontend_type>
+	        		<sort_order>110</sort_order>
+	        		<show_in_default>1</show_in_default>
+	        		<show_in_website>1</show_in_website>
+	        		<show_in_store>1</show_in_store>
+	        		<fields>
+	        			<temp_subject translate="label">
+	        				<label>Subject</label>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>10</sort_order>
+	        				<show_in_default>1</show_in_default>
+	        				<show_in_website>1</show_in_website>
+	        				<show_in_store>1</show_in_store>
+	        			</temp_subject>
+	        			<temp_message translate="label">
+	        				<label>Message</label>
+	        				<frontend_type>textarea</frontend_type>
+	        				<sort_order>15</sort_order>
+	        				<show_in_default>1</show_in_default>
+	        				<show_in_website>1</show_in_website>
+	        				<show_in_store>1</show_in_store>
+	        			</temp_message>
+	        		</fields>	
+	        	</email_config>
 	        </groups>
 		</contatoProdDisponivel_options>
 	</sections>
 </config>
+
