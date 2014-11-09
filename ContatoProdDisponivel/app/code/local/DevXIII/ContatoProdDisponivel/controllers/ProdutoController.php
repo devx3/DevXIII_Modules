@@ -42,15 +42,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		
 		/**
 		 * Pegando os dados da Mensagem enviada
-		 * 
 		 */
-		/*$this->data = new stdClass;
-		$this->data->nome    = $this->getRequest()->getParam('nome');
-		$this->data->email   = $this->getRequest()->getParam('email');
-		$this->data->produto = $this->getRequest()->getParam('produto');
-		$this->data->assunto = $this->getRequest()->getParam('assunto');
-		$this->data->msg     = $this->getRequest()->getParam('mensagem');	*/
-
 		$this->data = array(
 			$this->getRequest()->getParam('nome'),
 			$this->getRequest()->getParam('email'),
@@ -63,7 +55,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		 * Pegando os dados smtp
 		 */
 		$this->_configsmtp = new stdClass;
-		$this->_configsmtp->From       = Mage::getStoreConfig('contatoProdDisponivel_options/general/from_email');
+		$this->_configsmtp->FromEmail  = Mage::getStoreConfig('contatoProdDisponivel_options/general/from_email');
 		$this->_configsmtp->FromName   = Mage::getStoreConfig('contatoProdDisponivel_options/general/from_name');
 		$this->_configsmtp->Hostname   = Mage::getStoreConfig('contatoProdDisponivel_options/general/hostname');
 		$this->_configsmtp->FromPass   = Mage::getStoreConfig('contatoProdDisponivel_options/general/from_pass');
@@ -107,8 +99,8 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	private function prepareEmails()
 	{
 		
-		$this->phpMailer->From 	   = $this->_configsmtp->FromEmail;
-		$this->phpMailer->FromName = $this->_configsmtp->FromName;
+		$this->phpMailer->From	     = $this->_configsmtp->FromEmail;
+		$this->phpMailer->FromName   = $this->_configsmtp->FromName;
 		
 		$this->phpMailer->AddAddress( $this->_configsmtp->Recipients );
 		$this->phpMailer->AddCC($this->_configsmtp->Cc );
