@@ -48,16 +48,8 @@
 						if( 200 == result.status ){
 							try {
 								var res = result.responseText.evalJSON();
-								console.info(res);
-								$('carregando').update( 
-									'<p>'+
-										'<b>Email: </b>'+ res.email +
-									'</p>'+
-										'<b>Assunto: </b>'+ res.assunto +
-									'</p>'+
-										'<b>Mensagem: </b>'+ res.msg +
-									'</p>'
-								);
+								$('carregando').hide();
+								alert(res);
 							}	
 							catch(e){
 								alert(e.message);
