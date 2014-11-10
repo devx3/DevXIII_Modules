@@ -176,6 +176,9 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		}
 	}
 	
+	/**
+	 * 
+	 */
 	private function handleEmail( $string )
 	{
 
