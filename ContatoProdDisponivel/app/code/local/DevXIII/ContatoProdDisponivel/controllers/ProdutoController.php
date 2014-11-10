@@ -43,11 +43,11 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	 * %n = Nome do usuário
 	 * %e = Email do usuário
 	 * %p = Nome do Produto
-	 * %a = Assunto digitado no Form
+	 * %t = Telefone digitado no Form
 	 * %m = Mensagem digitada no Form
 	 * 
 	 */
-	protected $_vars  = array( '%n', '%e', '%p', '%a', '%m' );
+	protected $_vars  = array( '%n', '%e', '%p', '%t', '%m' );
 	
 	public function indexAction()
 	{
@@ -56,7 +56,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 			$this->getRequest()->getParam('nome'),
 			$this->getRequest()->getParam('email'),
 			$this->getRequest()->getParam('produto'),
-			$this->getRequest()->getParam('assunto'),
+			$this->getRequest()->getParam('telefone'),
 			$this->getRequest()->getParam('mensagem'),
 		);
 

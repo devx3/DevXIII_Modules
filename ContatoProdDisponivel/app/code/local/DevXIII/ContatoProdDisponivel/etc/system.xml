@@ -99,8 +99,8 @@
 	        						<li>%n = Nome do Usuário</li>
 	        						<li>%e = Email do Usuário</li>
 	        						<li>%p = Nome do Produto</li>
-	        						<li>%a = Assunto</li>
-	        						<li>%m = Mensagem</li>
+	        						<li>%t = Telefone do usuário</li>
+	        						<li>%m = Mensagem do usuário</li>
 	        					</ul>
 	        					<hr />
 	        					<br />
