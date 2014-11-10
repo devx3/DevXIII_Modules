@@ -128,7 +128,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 			foreach( $Addresses as $Address ):
 				$this->phpMailer->AddAddress( $Address );
 			endforeach;
-		elseif( '' == $Addresses ):
+		elseif( '' != $Addresses ):
 			$this->phpMailer->AddAddress( $Addresses );
 		endif;
 		
@@ -139,7 +139,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 			foreach( $CCs as $CC ):
 				$this->phpMailer->AddCC( $CC );
 			endforeach;
-		elseif( '' == $Addresses ):
+		elseif( '' != $Addresses ):
 			$this->phpMailer->AddCC( $CCs );
 		endif;
 		
@@ -150,7 +150,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 			foreach( $BCCs as $BCC ):
 				$this->phpMailer->AddBCC( $BCC );
 			endforeach;
-		elseif( '' == $Addresses ):
+		elseif( '' != $Addresses ):
 			$this->phpMailer->AddBCC( $BCCs );
 		endif;
 
