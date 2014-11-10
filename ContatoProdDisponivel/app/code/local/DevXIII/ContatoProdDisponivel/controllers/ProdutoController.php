@@ -1,5 +1,17 @@
 <?php 
-
+/**
+ * DevXIII
+ * 
+ * Módulo para contato sobre o produto 
+ * 
+ * 
+ * @author Erick Bruno <erickfabiani123@gmail.com>
+ * @package DevXIII_ContatoProdDisponivel
+ * @version 0.1.0
+ * @copyright Copyright 2014, DevXIII
+ * 
+ * 
+ */
 include( 'includes/PHPMailer/class.phpmailer.php' );
 
 class DevXIII_ContatoProdDisponivel_ProdutoController 
@@ -8,7 +20,7 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	/**
 	 * Var para armazenar dados de configuração do smtp
 	 */
-	protected $_configsmtp;
+	protected $_configSmtp;
 	
 	/**
 	 * Var para instância da classe PHPMailer
@@ -40,17 +52,6 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	public function indexAction()
 	{
 		
-		/**
-		 * Pegando os dados da Mensagem enviada
-		 * 
-		 */
-		/*$this->data = new stdClass;
-		$this->data->nome    = $this->getRequest()->getParam('nome');
-		$this->data->email   = $this->getRequest()->getParam('email');
-		$this->data->produto = $this->getRequest()->getParam('produto');
-		$this->data->assunto = $this->getRequest()->getParam('assunto');
-		$this->data->msg     = $this->getRequest()->getParam('mensagem');	*/
-
 		$this->data = array(
 			$this->getRequest()->getParam('nome'),
 			$this->getRequest()->getParam('email'),
@@ -62,26 +63,26 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		/**
 		 * Pegando os dados smtp
 		 */
-		$this->_configsmtp = new stdClass;
-		$this->_configsmtp->FromEmail  = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_email'));
-		$this->_configsmtp->FromName   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_name'));
-		$this->_configsmtp->Hostname   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/hostname'));
-		$this->_configsmtp->FromPass   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_pass'));
-		$this->_configsmtp->SmtpPort   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/smtp_port'));
+		$this->_configSmtp = new stdClass;
+		$this->_configSmtp->FromEmail  = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_email'));
+		$this->_configSmtp->FromName   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_name'));
+		$this->_configSmtp->Hostname   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/hostname'));
+		$this->_configSmtp->FromPass   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/from_pass'));
+		$this->_configSmtp->SmtpPort   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/general/smtp_port'));
 
 		
 		/**
 		 * Pegando dados de configuração da mensagem
 		 */
 		
-		$this->_configsmtp->Recipients = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/recipients'));
-		$this->_configsmtp->Cc 		   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/cc'));
-		$this->_configsmtp->Bcc 	   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/bcc'));
+		$this->_configSmtp->Recipients = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/recipients'));
+		$this->_configSmtp->Cc 		   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/cc'));
+		$this->_configSmtp->Bcc 	   = trim(Mage::getStoreConfig('contatoProdDisponivel_options/email_config/bcc'));
 		
 		$tempSubject = Mage::getStoreConfig('contatoProdDisponivel_options/email_config/temp_subject');
 		$tempMessage = Mage::getStoreConfig('contatoProdDisponivel_options/email_config/temp_message');
-		$this->_configsmtp->TempSubject = str_replace($this->_vars, $this->data, $tempSubject);
-		$this->_configsmtp->TempMessage = str_replace($this->_vars, $this->data, $tempMessage); 		 
+		$this->_configSmtp->TempSubject = str_replace($this->_vars, $this->data, $tempSubject);
+		$this->_configSmtp->TempMessage = str_replace($this->_vars, $this->data, $tempMessage); 		 
 
 		echo json_encode( $this->prepareEmailConfig() );
 		
@@ -94,13 +95,13 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 			
 			$this->phpMailer = new PHPMailer;
 			$this->phpMailer->IsSMTP();
-			$this->phpMailer->Host 	     = $this->_configsmtp->Hostname;
-			$this->phpMailer->Port 		 = (int) $this->_configsmtp->SmtpPort;
+			$this->phpMailer->Host 	     = $this->_configSmtp->Hostname;
+			$this->phpMailer->Port 		 = (int) $this->_configSmtp->SmtpPort;
 			$this->phpMailer->SMTPAuth   = true;
-			$this->phpMailer->Username   = $this->_configsmtp->FromEmail;
-			$this->phpMailer->Password   = $this->_configsmtp->FromPass;
-			$this->phpMailer->From 	   	 = $this->_configsmtp->FromEmail;
-			$this->phpMailer->FromName   = $this->_configsmtp->FromName;
+			$this->phpMailer->Username   = $this->_configSmtp->FromEmail;
+			$this->phpMailer->Password   = $this->_configSmtp->FromPass;
+			$this->phpMailer->From 	   	 = $this->_configSmtp->FromEmail;
+			$this->phpMailer->FromName   = $this->_configSmtp->FromName;
 			$this->phpMailer->IsHTML();
 			//$this->phpMailer->SMTPSecure = 'tls';
 			
@@ -116,9 +117,9 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 	private function prepareEmails()
 	{
 	
-		$Addresses = $this->handleEmail( $this->_configsmtp->Recipients );
-		$CCs 	   = $this->handleEmail( $this->_configsmtp->Cc );
-		$BCCs 	   = $this->handleEmail( $this->_configsmtp->Bcc );
+		$Addresses = $this->handleEmail( $this->_configSmtp->Recipients );
+		$CCs 	   = $this->handleEmail( $this->_configSmtp->Cc );
+		$BCCs 	   = $this->handleEmail( $this->_configSmtp->Bcc );
 		
 		/** ----------------------------------------------
 		 * Setando os Destinatários
@@ -154,8 +155,8 @@ class DevXIII_ContatoProdDisponivel_ProdutoController
 		endif;
 
 		$this->phpMailer->CharSet = 'utf-8';
-		$this->phpMailer->Subject = $this->_configsmtp->TempSubject;
-		$this->phpMailer->Body 	  = $this->_configsmtp->TempMessage;
+		$this->phpMailer->Subject = $this->_configSmtp->TempSubject;
+		$this->phpMailer->Body 	  = $this->_configSmtp->TempMessage;
 		
 		return $this;
 		

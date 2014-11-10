@@ -56,7 +56,7 @@
 	        				<label>Email</label>
 	        				<comment>Email do Remetente</comment>
 	        				<frontend_type>text</frontend_type>
-	        				<sort_order>16</sort_order>
+	        				<sort_order>20</sort_order>
 	        				<show_in_default>1</show_in_default>
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
@@ -65,7 +65,7 @@
 	        				<label>Hostname</label>
 	        				<comment>Ex: smtp.domain.com</comment>
 	        				<frontend_type>text</frontend_type>
-	        				<sort_order>17</sort_order>
+	        				<sort_order>25</sort_order>
 	        				<show_in_default>1</show_in_default>
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
@@ -73,38 +73,11 @@
 	        			<from_pass translate="label">
 	        				<label>Senha</label>
 	        				<frontend_type>password</frontend_type>
-	        				<sort_order>20</sort_order>
+	        				<sort_order>30</sort_order>
 	        				<show_in_default>1</show_in_default>
 				            <show_in_website>1</show_in_website>
 				            <show_in_store>1</show_in_store>
 	        			</from_pass>
-	        			<recipients translate="label">
-	        				<label>Destinatários</label>
-	        				<comment>Emails de destino (separados por ",")</comment>
-	        				<frontend_type>text</frontend_type>
-	        				<sort_order>25</sort_order>
-	        				<show_in_default>1</show_in_default>
-				            <show_in_website>1</show_in_website>
-				            <show_in_store>1</show_in_store>
-	        			</recipients>
-	        			<cc translate="label">
-	        				<label>Cópia para</label>
-	        				<comment>Emails para cópia (separados por ",")</comment>
-	        				<frontend_type>text</frontend_type>
-	        				<sort_order>30</sort_order>
-	        				<show_in_default>1</show_in_default>
-				            <show_in_website>1</show_in_website>
-				            <show_in_store>1</show_in_store>
-	        			</cc>
-	        			<bcc translate="label">
-	        				<label>Cópia oculta para</label>
-	        				<comment>Emails para cópia (separados por ",")</comment>
-	        				<frontend_type>text</frontend_type>
-	        				<sort_order>30</sort_order>
-	        				<show_in_default>1</show_in_default>
-				            <show_in_website>1</show_in_website>
-				            <show_in_store>1</show_in_store>
-	        			</bcc>
 	        			<smtp_port translate="label">
 	        				<label>Porta de Envio</label>
 	        				<frontend_type>text</frontend_type>
@@ -140,10 +113,37 @@
 	        		<show_in_website>1</show_in_website>
 	        		<show_in_store>1</show_in_store>
 	        		<fields>
+	        			<recipients translate="label">
+	        				<label>Destinatários</label>
+	        				<comment>Emails de destino (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>5</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</recipients>
+	        			<cc translate="label">
+	        				<label>Cópia para</label>
+	        				<comment>Emails para cópia (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>10</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</cc>
+	        			<bcc translate="label">
+	        				<label>Cópia oculta para</label>
+	        				<comment>Emails para cópia oculta (separados por ",")</comment>
+	        				<frontend_type>text</frontend_type>
+	        				<sort_order>15</sort_order>
+	        				<show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+	        			</bcc>
 	        			<temp_subject translate="label">
 	        				<label>Subject</label>
 	        				<frontend_type>text</frontend_type>
-	        				<sort_order>10</sort_order>
+	        				<sort_order>20</sort_order>
 	        				<show_in_default>1</show_in_default>
 	        				<show_in_website>1</show_in_website>
 	        				<show_in_store>1</show_in_store>
@@ -151,7 +151,7 @@
 	        			<temp_message translate="label">
 	        				<label>Message</label>
 	        				<frontend_type>textarea</frontend_type>
-	        				<sort_order>15</sort_order>
+	        				<sort_order>25</sort_order>
 	        				<show_in_default>1</show_in_default>
 	        				<show_in_website>1</show_in_website>
 	        				<show_in_store>1</show_in_store>
