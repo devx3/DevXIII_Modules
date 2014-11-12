@@ -5,53 +5,67 @@
  * @author Erick Bruno <erickfabiani123@gmail.com>
  * 
  */	
-.contato-sobreproduto-form {
-	background: #8F8F8F;
-	margin-top:10px;
-	padding: 10px;
-	width: 90%;
-}
-.contato-sobreproduto-form h1 {
-	text-align: center;
-	background: #1A1A1A;
-	color: #FFF;
-	padding: 5px;
-	margin-bottom: 10px;
-	
+.precoConsulta{
+width:98%; min-height:300px; background:rgb(230,230,230); text-align:center;
+border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+margin:20px auto 10px auto !important;
+padding:10px 0 !important;
 }
 
-.contato-sobreproduto-form form p input, .contato-sobreproduto-form form p textarea {
-	background: #FFFFFF;
-	width: 98%;
-	border: 0;
-	resize: none;
+.precoConsulta input.texto, .precoConsulta textarea{
+width:100% !important;
+width: calc(96% - 20px) !important;
+width: -webkit-calc(96% - 20px) !important;
+width: -moz-calc(96% - 20px) !important;
+width: -ms-calc(96% - 20px) !important;
+width: -o-calc(96% - 20px) !important;
+
+margin:0px auto 4px auto!important;
+padding:0 10px !important;
+border:1px solid #ccc;
+
+border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; 
+
+clear:both;
+
+height:35px !important; line-height:35px !important;
 }
 
-.contato-sobreproduto-form form p label { 
-	font-weight: bold;
-	font-size: 14px; 
+
+.precoConsulta input.texto:focus, .precoConsulta textarea:focus{
+border:1px solid #09F; box-shadow:1px 1px 2px rgba(0,153,255,0.6);  -webkit-box-shadow:1px 1px 2px rgba(0,153,255,0.6); -moz-box-shadow:1px 1px 2px rgba(0,153,255,0.6);
 }
 
-.contato-sobreproduto-form form p label { 
-	display:block; 
+.precoConsulta input.envia{
+padding: 0 16px;
+cursor: pointer;
+border: 1px solid #60ad13;
+font: bold 15px/34px Arial, Helvetica, sans-serif;
+color: #fff;
+height: 34px !important;
+background: #777;
+background-image: -moz-linear-gradient(top,#73d118,#59a312);
+background-image: -webkit-gradient(linear,left top,left bottom,from(#73d118),to(#59a312));
+filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr=#73d118,endColorStr=#59a312);
+-ms-filter: "progid:DXImageTransform.Microsoft.Gradient(startColorStr=#bbbbbb, endColorStr=#777777)";
+
+border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;
+
+
 }
 
-.contato-sobreproduto-form form p input { 
-	font-size: 16px;
-	padding: 5px;
+.precoConsulta input.envia:hover{
+ box-shadow:1px 2px 3px rgba(0,0,0,0.5);  -webkit-box-shadow:1px 2px 3px rgba(0,0,0,0.5); -moz-box-shadow:1px 2px 3px rgba(0,0,0,0.5);
+ 
+background: #3eb716; /* Old browsers */
+background: -moz-linear-gradient(top,  #3eb716 0%, #3d820f 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3eb716), color-stop(100%,#3d820f)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #3eb716 0%,#3d820f 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #3eb716 0%,#3d820f 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #3eb716 0%,#3d820f 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #3eb716 0%,#3d820f 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3eb716', endColorstr='#3d820f',GradientType=0 ); /* IE6-9 */
+
 }
 
-.contato-sobreproduto-form form p textarea { 
-	height: 100px;
-}
-
-.contato-sobreproduto-form form p button
-{
-	width: 20%;
-	font-size: 18px;
-	padding: 10px;
-	background-color: #00AA00;
-	color: #FFFFFF;
-	border: 0;
-	border-radius: 10px;
-}
+.precoConsulta textarea{ height:150px !important;}
