@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<config>
+	<modules>
+		<DevXIII_FacebookTracker>
+			<version>0.1.0</version>
+		</DevXIII_FacebookTracker>
+	</modules>
+	<frontend>
+		<layout>
+			<updates>
+				<facebookTracker>
+					<file>devxiii_facebook.xml</file>
+				</facebookTracker>
+			</updates>
+		</layout>
+	</frontend>
+</config>
