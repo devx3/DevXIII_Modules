@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<modules>
+		<DevXIII_GoogleTracker>
+			<version>0.1.0</version>
+		</DevXIII_GoogleTracker>
+	</modules>
+	<global>
+		
+		<helpers>
+			<googletracking>
+				<class>DevXIII_GoogleTracker_Helper</class>
+			</googletracking>
+		</helpers>
+
+		<models>
+			<googletracking>
+				<class>DevXIII_GoogleTracker_Model</class>
+			</googletracking>
+		</models>
+
+		<events>
+			<sales_order_place_after>
+				<observers>
+					<devxiii_googletracker>
+						<type>singleton</type>
+						<class>googletracking/observer</class>
+						<method>trackingOrder</method>
+					</devxiii_googletracker>
+				</observers>
+			</sales_order_place_after>
+		</events>
+	</global>
+</config>
