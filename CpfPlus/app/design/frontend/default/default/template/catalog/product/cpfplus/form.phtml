@@ -1,0 +1,50 @@
+<?php $_product = $this->getProduct(); ?>
+<?php $_productQty = Mage::getModel("cataloginventory/stock_item")->loadByProduct($_product->getId()); ?>
+
+<div id="blocks_cpfplus">
+	<form action="<?php echo $this->getSubmitUrl($_product) ?>" id="formCpfPlus" method="POST">
+	</form>
+</div>
+<script>
+	window.onload = function() {
+		loadForm();
+	}
+	/**
+	 * No desfoque do campo qty, verifica se a qty é permitida pelo sistema e carrega o form
+	 */
+	$('qty').on('blur', function(){
+		var maxSaleQty = <?php echo $_productQty->getMaxSaleQty(); ?>;
+		if( $(this).getValue() > maxSaleQty ) {
+			$(this).setValue(maxSaleQty);	
+		}		
+		loadForm();
+	});
+	
+	/**
+	 * Carrega formulário de acordo com qty setada
+	 */
+	function loadForm()
+	{
+		var Qty = $('qty').getValue();
+		var blocks = '';
+		for (var i=1; i <= Qty; i++) {
+			blocks += '<div id="block_data">';
+				if( i == 1 ){
+					blocks += '<h1 id="block_title">Seus Dados</h1>';
+				}
+				else
+				{
+					blocks += '<h1 id="block_title">'+i+'º Passageiro</h1>';
+				}
+				blocks += '<input type="text" name="nome'+i+'" value="Nome:" onclick="if( this.value==\'Nome:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'Nome:\'}"/>';
+				blocks += '<input type="text" name="rg'+i+'" value="RG:" onclick="if( this.value==\'RG:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'RG:\'}"/>';
+				blocks += '<input type="text" name="cpf'+i+'" value="CPF:" onclick="if( this.value==\'CPF:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'CPF:\'}"/>';
+			blocks +='</div>';
+			
+		}
+		blocks += '<input type="hidden" name="qty" id="qty" maxlength="12" value="'+Qty+'" title="<?php echo $this->__('Qty') ?>" />';
+		blocks += '<button type="submit" class="btn button-ok" name="update_cart_action" value="update_qty">Adicionar ao Carrinho</button>';
+		var formCpfPlus = document.getElementById('formCpfPlus');
+		formCpfPlus.innerHTML = blocks;
+	}
+</script>

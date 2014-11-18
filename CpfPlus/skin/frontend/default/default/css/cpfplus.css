@@ -1,0 +1,38 @@
+/**
+ * DevXIII Css
+ * @package CpfPlus
+ * @author Erick Bruno <erickfabiani123@gmail.com>
+ */
+
+#blocks_cpfplus form #block_data h1 {
+	font-size: 1.5em;
+	text-align: center;
+}
+
+#blocks_cpfplus {
+	background: #555;
+	padding: 10px;
+}
+
+#blocks_cpfplus #block_data:first-child {
+	width:100%;
+	background: #90C898;
+	margin-bottom: 10px;
+	float: left;
+}
+
+#blocks_cpfplus #block_data {
+	width:200px;
+	background: #90C898;
+	margin-right: 10px;
+	margin-bottom: 10px;
+	float: left;
+}
+#blocks_cpfplus #block_data input {
+	width: 100%;
+	margin-bottom: 10px;
+}
+#blocks_cpfplus form button {
+	width:100%;
+	padding: 5px;
+}

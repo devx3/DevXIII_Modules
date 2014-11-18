@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<DevXIII_CpfPlus>
+			<version>0.1.0</version>
+		</DevXIII_CpfPlus>
+	</modules>
+	
+	<global>
+		<resources>
+			<cpfplus_setup>
+				
+				<setup>
+					<module>DevXIII_CpfPlus</module>
+					<class>DevXIII_CpfPlus_Model_Resource_Setup</class>
+				</setup>
+				<connection>
+					<use>directory_setup</use>
+				</connection>
+				
+			</cpfplus_setup>
+		</resources>
+	</global>
+	
+	<frontend>
+		
+		<!-- Begin: Sobrescrevendo o controller do checkout -->
+		<routers>
+			<checkout>
+				<args>
+					<modules>
+						<DevXIII_CpfPlus before="Mage_Checkout">DevXIII_CpfPlus</DevXIII_CpfPlus>
+					</modules>
+				</args>
+			</checkout>
+		</routers>
+		<!-- End: Sobrescrevendo o controller do checkout -->
+		
+		<layout>
+			<updates>
+				<cpfplus>
+					<file>cpfplus.xml</file>
+				</cpfplus>
+			</updates>
+		</layout>
+	</frontend>
+</config>
