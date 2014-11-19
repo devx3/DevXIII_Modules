@@ -160,6 +160,9 @@ class DevXIII_CpfPlus_CartController
         $cart   = $this->_getCart();
         $params = $this->getRequest()->getParams();
 
+		echo '<pre>';
+		print_r($params); die;
+
         try {
             if (isset($params['qty'])) {
                 $filter = new Zend_Filter_LocalizedToNormalized(

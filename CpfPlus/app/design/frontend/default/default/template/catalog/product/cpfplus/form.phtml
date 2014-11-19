@@ -36,9 +36,9 @@
 				{
 					blocks += '<h1 id="block_title">'+i+'º Passageiro</h1>';
 				}
-				blocks += '<input type="text" name="nome'+i+'" value="Nome:" onclick="if( this.value==\'Nome:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'Nome:\'}"/>';
-				blocks += '<input type="text" name="rg'+i+'" value="RG:" onclick="if( this.value==\'RG:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'RG:\'}"/>';
-				blocks += '<input type="text" name="cpf'+i+'" value="CPF:" onclick="if( this.value==\'CPF:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'CPF:\'}"/>';
+				blocks += '<input type="text" name="passenger['+i+'][nome]" value="Nome:" onclick="if( this.value==\'Nome:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'Nome:\'}"/>';
+				blocks += '<input type="text" name="passenger['+i+'][rg]" value="RG:" onclick="if( this.value==\'RG:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'RG:\'}"/>';
+				blocks += '<input type="text" name="passenger['+i+'][cpf]" value="CPF:" onclick="if( this.value==\'CPF:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'CPF:\'}"/>';
 			blocks +='</div>';
 			
 		}
