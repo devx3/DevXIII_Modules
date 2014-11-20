@@ -159,9 +159,8 @@ class DevXIII_CpfPlus_CartController
         }
         $cart   = $this->_getCart();
         $params = $this->getRequest()->getParams();
-
-		echo '<pre>';
-		print_r($params); die;
+		
+		$params['passengers_data'] = serialize($params['passengers_data']);
 
         try {
             if (isset($params['qty'])) {
@@ -172,6 +171,7 @@ class DevXIII_CpfPlus_CartController
             }
 
             $product = $this->_initProduct();
+			
             $related = $this->getRequest()->getParam('related_product');
 
             /**
