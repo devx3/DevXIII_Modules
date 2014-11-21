@@ -3,20 +3,25 @@
  * @package CpfPlus
  * @author Erick Bruno <erickfabiani123@gmail.com>
  */
+/* TESTE ALTERAÇÂO*/
+#blocks_cpfplus {
+	background:#CCC;
+	width:90%;
+	margin:0 auto !important;
+	clear:both !important;
+}
+
 
 #blocks_cpfplus form #block_data h1 {
 	font-size: 1.5em;
 	text-align: center;
 }
 
-#blocks_cpfplus {
-	background: #555;
-	padding: 10px;
-}
+
 
 #blocks_cpfplus #block_data:first-child {
 	width:100%;
-	background: #90C898;
+	background:#ccc;
 	margin-bottom: 10px;
 	float: left;
 }
