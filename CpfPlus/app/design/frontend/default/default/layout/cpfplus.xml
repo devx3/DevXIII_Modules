@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layout version="0.1.0">
+    <catalog_product_view>
+        <reference name="head">
+            <action method="addCss">
+                <stylesheet>css/cpfplus.css</stylesheet>
+            </action>
+        </reference>
+        <reference name="product.info">
+            <block type="catalog/product_view" name="cpfplus" template="catalog/product/cpfplus/form.phtml" />
+        </reference>
+    </catalog_product_view>
+</layout>
