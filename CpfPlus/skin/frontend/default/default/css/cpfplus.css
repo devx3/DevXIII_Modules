@@ -6,9 +6,10 @@
 /* TESTE ALTERAÇÂO*/
 #blocks_cpfplus {
 	background:#CCC;
-	width:90%;
+	width:93%;
 	margin:0 auto !important;
 	clear:both !important;
+	text-align:center !important;
 }
 
 
@@ -27,15 +28,22 @@
 }
 
 #blocks_cpfplus #block_data {
-	width:200px;
-	background: #90C898;
-	margin-right: 10px;
-	margin-bottom: 10px;
-	float: left;
+	width:80% !important;
+	background:orange !important;
+	margin:auto !important;
 }
 #blocks_cpfplus #block_data input {
-	width: 100%;
-	margin-bottom: 10px;
+	width: 90%;
+	max-width:400px;
+
+	height:25px;
+	line-height:25px;
+	border-radius:5px;
+	-webkit-border-radius:5px;
+	-moz-border-radius:5px;
+		
+	margin:0 auto 10px auto !important;
+	clear:both;
 }
 #blocks_cpfplus form button {
 	width:100%;
