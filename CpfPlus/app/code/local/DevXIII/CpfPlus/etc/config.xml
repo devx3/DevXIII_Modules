@@ -7,6 +7,43 @@
 	</modules>
 	
 	<global>
+		
+		<models>
+			<cpfplus>
+				<class>DevXIII_CpfPlus_Model</class>
+			</cpfplus>
+		</models>
+		
+		<fieldsets>
+			<sales_convert_quote_item>
+				<cpfplus>
+					<to_order_item>*</to_order_item>
+				</cpfplus>
+			</sales_convert_quote_item>
+		</fieldsets>
+		
+		<sales>
+			<quote>
+				<item>
+					<product_attributes>
+						<passengers_data />
+					</product_attributes>
+				</item>
+			</quote>
+		</sales>
+		
+		<events>
+			<checkout_cart_product_add_after>
+				<observers>
+					<cpfplus>
+						<type>singleton</type>
+						<class>cpfplus/observer</class>
+						<method>convertPassengers</method>
+					</cpfplus>
+				</observers>
+			</checkout_cart_product_add_after>
+		</events> 
+		
 		<resources>
 			<cpfplus_setup>
 				

@@ -160,8 +160,9 @@ class DevXIII_CpfPlus_CartController
         $cart   = $this->_getCart();
         $params = $this->getRequest()->getParams();
 		
-		$params['passengers_data'] = serialize($params['passengers_data']);
-
+		if( $params['passengers_data'] ):
+			$params['passengers_data'] = serialize($params['passengers_data']);
+		endif;
         try {
             if (isset($params['qty'])) {
                 $filter = new Zend_Filter_LocalizedToNormalized(
