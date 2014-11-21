@@ -8,30 +8,29 @@
 	
 	<global>
 		
+		<!-- Begin: Definindo blocks do módulo -->
+		<blocks>
+			
+			<cpfplus>
+				<class>DevXIII_CpfPlus_Block</class>
+			</cpfplus>
+
+			<adminhtml>
+				<rewrite>
+					<sales_items_abstract>DevXIII_CpfPlus_Block_Sales_Items_Abstract</sales_items_abstract>
+				</rewrite>
+			</adminhtml>
+		</blocks>
+		<!-- End: Definindo blocks do módulo -->
+
+		<!-- Begin: Definindo models do módulo -->
 		<models>
 			<cpfplus>
 				<class>DevXIII_CpfPlus_Model</class>
 			</cpfplus>
 		</models>
-		
-		<fieldsets>
-			<sales_convert_quote_item>
-				<cpfplus>
-					<to_order_item>*</to_order_item>
-				</cpfplus>
-			</sales_convert_quote_item>
-		</fieldsets>
-		
-		<sales>
-			<quote>
-				<item>
-					<product_attributes>
-						<passengers_data />
-					</product_attributes>
-				</item>
-			</quote>
-		</sales>
-		
+		<!-- End: Definindo models do módulo -->
+
 		<events>
 			<checkout_cart_product_add_after>
 				<observers>
