@@ -5,29 +5,34 @@
 	<form action="<?php echo $this->getSubmitUrl($_product) ?>" id="formCpfPlus" method="POST">
 	</form>
 </div>
-<script>
+<script>
+
+	var Qty = document.getElementById('qty');
+	var formCpfPlus = document.getElementById('formCpfPlus');
+
 	window.onload = function() {
 		loadForm();
 	}
+
 	/**
 	 * No desfoque do campo qty, verifica se a qty é permitida pelo sistema e carrega o form
 	 */
-	$('qty').on('blur', function(){
+	Qty.onblur = function()
+	{
 		var maxSaleQty = <?php echo $_productQty->getMaxSaleQty(); ?>;
 		if( $(this).getValue() > maxSaleQty ) {
 			$(this).setValue(maxSaleQty);	
 		}		
 		loadForm();
-	});
-	
+	}
+
 	/**
 	 * Carrega formulário de acordo com qty setada
 	 */
 	function loadForm()
 	{
-		var Qty = $('qty').getValue();
 		var blocks = '';
-		for (var i=1; i <= Qty; i++) {
+		for (var i=1; i <= Qty.value; i++) {
 			blocks += '<div id="block_data">';
 				if( i == 1 ){
 					blocks += '<h1 id="block_title">Seus Dados</h1>';
@@ -36,15 +41,39 @@
 				{
 					blocks += '<h1 id="block_title">'+i+'º Passageiro</h1>';
 				}
-				blocks += '<input type="text" name="passengers_data['+i+'][nome]" value="Nome:" onclick="if( this.value==\'Nome:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'Nome:\'}"/>';
-				blocks += '<input type="text" name="passengers_data['+i+'][rg]" value="RG:" onclick="if( this.value==\'RG:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'RG:\'}"/>';
-				blocks += '<input type="text" name="passengers_data['+i+'][cpf]" value="CPF:" onclick="if( this.value==\'CPF:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'CPF:\'}"/>';
+				blocks += '<input type="text" id="passengers_nome" name="passengers_data['+i+'][nome]" value="Nome:" onclick="if( this.value==\'Nome:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'Nome:\'}"/>';
+				blocks += '<input type="text" id="passengers_rg" name="passengers_data['+i+'][rg]" value="RG:" onclick="if( this.value==\'RG:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'RG:\'}"/>';
+				blocks += '<input type="text" id="passengers_cpf" name="passengers_data['+i+'][cpf]" value="CPF:" onclick="if( this.value==\'CPF:\') {this.value=\'\'}" onblur="if( this.value.trim() == \'\' ){this.value=\'CPF:\'}"/>';
 			blocks +='</div>';
 			
 		}
-		blocks += '<input type="hidden" name="qty" id="qty" maxlength="12" value="'+Qty+'" title="<?php echo $this->__('Qty') ?>" />';
-		blocks += '<button type="submit" class="btn button-ok" name="update_cart_action" value="update_qty">Adicionar ao Carrinho</button>';
-		var formCpfPlus = document.getElementById('formCpfPlus');
+		blocks += '<input type="hidden" name="qty" id="qty" maxlength="12" value="'+Qty.value+'" title="<?php echo $this->__('Qty') ?>" />';
+		blocks += '<button type="submit" class="btn button-ok" onclick="checkFields(); return false;">Adicionar ao Carrinho</button>';
+		
 		formCpfPlus.innerHTML = blocks;
 	}
+
+	function checkFields()
+	{
+
+		var field = new Array();
+		for (var i=1; i<=Qty.value;i++)
+		{
+			field[0] = document.getElementsByName('passengers_data['+i+'][nome]');
+			field[1] = document.getElementsByName('passengers_data['+i+'][rg]');
+			field[2] = document.getElementsByName('passengers_data['+i+'][cpf]');
+
+			for( var k=0; k < field.length; k++ ){
+				if( /(Nome|RG|CPF):/g.test( field[k][0].value.trim() ) )
+				{
+					field[k][0].style.borderColor = "#900";
+					return false;
+				}
+			}
+			formCpfPlus.submit();
+			
+		}
+
+	}
+
 </script>

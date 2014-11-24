@@ -157,11 +157,15 @@
     //]]>
     </script>
     </div>
-    <!-- Begin: Caso seja um produto virtual -->
+    <!-- Begin: Caso cpfplus ativado para o produto -->
+        
 
-		<?php echo $this->getChildHtml('cpfplus')?>
-	<!-- End: Caso seja um produto virtual -->
-	
+    <?php if( $_product->getCpfplus() == 1 ): ?>
+      <?php echo $this->getChildHtml('cpfplus')?>
+    <?php  endif; ?>
+
+    <!-- End: Caso cpfplus ativado para o produto -->
+    
     <div class="product-collateral">
 <?php foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
         <div class="box-collateral <?php echo "box-{$alias}"?>">
