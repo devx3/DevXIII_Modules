@@ -6,6 +6,17 @@
 		</DevXIII_CpfPlus>
 	</modules>
 	
+	<!-- Meu template customizado para o adminhtml -->
+	<stores>
+		<admin>
+			<design>
+				<theme>
+					<template>custom</template>
+				</theme>
+			</design>
+		</admin>
+	</stores>
+	
 	<global>
 		
 		<!-- Begin: Definindo blocks do módulo -->
@@ -14,12 +25,13 @@
 			<cpfplus>
 				<class>DevXIII_CpfPlus_Block</class>
 			</cpfplus>
-
+			
 			<adminhtml>
 				<rewrite>
 					<sales_items_abstract>DevXIII_CpfPlus_Block_Sales_Items_Abstract</sales_items_abstract>
 				</rewrite>
 			</adminhtml>
+
 		</blocks>
 		<!-- End: Definindo blocks do módulo -->
 
