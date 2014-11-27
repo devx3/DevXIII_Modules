@@ -10,9 +10,7 @@
 			<contatoProdDisponivel_setup>
 				<setup>
 					<module>DevXIII_ContatoProdDisponivel</module>
-					
-					<!-- <class>DevXIII_ContatoProdDisponivel_Model_Resource_Setup</class>-->
-					
+					<class>DevXIII_ContatoProdDisponivel_Model_Resource_Setup</class>
 				</setup>
 				<connection>
                     <use>directory_setup</use>
