@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DevXIII_CarrierExpress>
+            <version>1.0.0</version>
+        </DevXIII_CarrierExpress>
+    </modules>
+    
+    <global>
+        
+        <models>
+            <devxiii_carrierexpress>
+                <class>DevXIII_CarrierExpress_Model</class>
+            </devxiii_carrierexpress>
+        </models>
+        <sales>
+            <shipping>
+                <carriers>
+                    <devxiii_carrierexpress>
+                        <class>DevXIII_CarrierExpress_Model_Carrier_ShippingMethod</class>
+                    </devxiii_carrierexpress>
+                </carriers>
+            </shipping>
+        </sales>
+    </global>
+    
+    <default>
+        <carriers>
+            <devxiii_carrierexpress>
+                <active>1</active>
+                <model>DevXIII_CarrierExpress_Model_Carrier_ShippingMethod</model>
+                <title>Transporte</title>
+            </devxiii_carrierexpress>
+        </carriers>
+    </default>
+</config>

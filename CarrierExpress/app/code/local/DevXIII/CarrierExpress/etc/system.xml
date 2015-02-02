@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+
+<config>
+   
+    <sections>
+        <carriers>
+            <groups>
+                <devxiii_carrierexpress translate="label" module="shipping">
+                    <label>DevXIII - Carrier Express</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <comment>
+                        <![CDATA[
+                            <div>
+                                <h1>DevXIII - Carrier Express</h1>
+                                <br />
+                                <p>Módulo para cálculo fixo de frete</p>
+                                <p><b>Author: </b>Erick Bruno</p>
+                                <p><b>Date: </b>2015-01-29</p>
+                                <p><b>Realese: </b>1.0.0 beta</p>
+                                <br /><br />
+                                <hr /><br /><br />
+                            </div>
+                        ]]>
+                    </comment>
+                    <fields>
+                        <active translate="label">
+                            <label>Habilitar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        
+                        <title translate="label">
+                            <label>Título</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                                             
+                    </fields>
+                </devxiii_carrierexpress>
+            </groups>
+        </carriers>
+    </sections>
+</config>
