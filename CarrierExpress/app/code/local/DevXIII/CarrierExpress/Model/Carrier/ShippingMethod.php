@@ -36,6 +36,7 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
             'ssc' => 328.34,
             'nnc' => 623.42
         ),
+        
     );
 
     public function collectRates(Mage_Shipping_Model_Rate_Request $request) {
@@ -100,7 +101,13 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
                 return 5;
                 break;
             default:
-                return 'acima de 1000kg';
+                $priceSsc = (328.34 + (328.34 * 0.3));
+                $priceNnc = (623.42 + (623.42 * 0.3));
+                $this->_groups[6] = array(
+                    'ssc' => $priceSsc,
+                    'nnc' => $priceNnc,
+                );
+                return 6;
                 break;
         }
     }
@@ -111,8 +118,8 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
 
     /**
      * Retorna o preço com base no peso e no CEP
-     * @param type $postcode
-     * @param type $groupId
+     * @param type $postcode CEP de destino
+     * @param type $groupId GroupId do(s) produto(s)
      * @return boolean|float
      */
     protected function _getCarrierPrice( $postcode, $groupId ) {
