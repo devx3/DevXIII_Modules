@@ -2,11 +2,29 @@
 <config>
     <modules>
         <DevXIII_CarrierExpress>
-            <version>1.0.0</version>
+            <version>0.9.2</version>
         </DevXIII_CarrierExpress>
     </modules>
     
     <global>
+        <helpers>
+            <devxiii_carrierexpress>
+                <class>DevXIII_CarrierExpress_Helper</class>
+            </devxiii_carrierexpress>
+        </helpers>
+        <resources>
+            
+            <devxiii_carrierexpress_setup>
+                <setup>
+                    <module>DevXIII_CarrierExpress</module>
+                    <class>DevXIII_CarrierExpress_Model_Resource_Setup</class>
+                </setup>
+                <connection>
+                    <use>directory_setup</use>
+                </connection>
+                
+            </devxiii_carrierexpress_setup>
+        </resources>
         
         <models>
             <devxiii_carrierexpress>

@@ -20,7 +20,7 @@
                                 <p>Módulo para cálculo fixo de frete</p>
                                 <p><b>Author: </b>Erick Bruno</p>
                                 <p><b>Date: </b>2015-01-29</p>
-                                <p><b>Realese: </b>1.0.0 beta</p>
+                                <p><b>Realese: </b>0.9.2 beta</p>
                                 <br /><br />
                                 <hr /><br /><br />
                             </div>
@@ -38,7 +38,7 @@
                         </active>
                         
                         <title translate="label">
-                            <label>Título</label>
+                            <label>Título do Método</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>130</sort_order>
                             <show_in_default>1</show_in_default>

@@ -42,17 +42,24 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
     public function collectRates(Mage_Shipping_Model_Rate_Request $request) {
 
         $storeConfig = 'carriers/' . $this->_code . '/';
+        $carrierHelper = Mage::helper('devxiii_carrierexpress');
         
         if (!Mage::getStoreConfig($storeConfig . 'active')) {
             return false;
         }
         
         $itemsWeight = 0;
+        $exception = 0;
         foreach ($request->getAllItems() as $item) {
-            $itemsWeight += $item->getWeight() * $item->getQty();
+            $exception += $carrierHelper->getCarrierException($item->getProductId());
+            $itemsWeight += ($item->getWeight() * $item->getQty());
         }
         
-        $postcode = (int) str_replace('-', '', $request->getDestPostcode());
+        if( $exception == 0 ) {
+            $exception = 1; 
+        }
+
+        $postcode = (int) str_replace('-', '', trim($request->getDestPostcode()));
         
         $groupId = $this->_returnCarrierGroup($itemsWeight);
         $shippingPrice = $this->_getCarrierPrice($postcode, $groupId);
@@ -71,7 +78,7 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
         $method->setMethodTitle(Mage::getStoreConfig($storeConfig . 'title'));
 
         $method->setCost(0);
-        $method->setPrice($shippingPrice);
+        $method->setPrice($shippingPrice*$exception);
         $result->append($method);
 
         return $result;
@@ -101,6 +108,7 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
                 return 5;
                 break;
             default:
+                //multiplica por 30%
                 $priceSsc = (328.34 + (328.34 * 0.3));
                 $priceNnc = (623.42 + (623.42 * 0.3));
                 $this->_groups[6] = array(
@@ -108,6 +116,7 @@ class DevXIII_CarrierExpress_Model_Carrier_ShippingMethod extends Mage_Shipping_
                     'nnc' => $priceNnc,
                 );
                 return 6;
+                
                 break;
         }
     }
